@@ -1,0 +1,94 @@
+  #bm-wrap { position: relative; width: 100%; height: 100vh; background: #000; overflow: hidden; border-radius: 0; }
+  #bm-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  #bm-p-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  #bm-polaroid {
+    display: none; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-2deg) scale(0);
+    background: #fff; padding: 14px 14px 44px 14px;
+    box-shadow: 0 8px 40px rgba(255,20,147,0.6), 0 0 0 1px rgba(255,20,147,0.3);
+    border-radius: 4px; animation: none; z-index: 10;
+    max-width: 90%;
+    text-align: center;
+  }
+  #bm-polaroid.show {
+    display: block;
+    animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  @keyframes popIn {
+    0% { transform: translate(-50%, -50%) rotate(-2deg) scale(0); opacity: 0; }
+    100% { transform: translate(-50%, -50%) rotate(-2deg) scale(1); opacity: 1; }
+  }
+  #bm-polaroid svg { display: block; }
+  #bm-polaroid .caption {
+    text-align: center; font-family: 'Courier New', monospace;
+    font-size: 13px; color: #222; margin-bottom: 8px; letter-spacing: 1px;
+  }
+  #loveBtn {
+  display: block;
+  margin: 10px auto 0 auto; /* centers + pushes below */
+  padding: 8px 14px;
+  border: none;
+  background: #ff1493;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#loveBtn:hover {
+  background: #ff69b4;
+}
+
+#letterBox {
+  display: none;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background: #fff0f5;
+  box-shadow: 0 0 20px rgba(255,20,147,0.4);
+  text-align: center;
+  font-family: cursive;
+  position: relative;
+  color: #d63384;
+  opacity: 0;
+  overflow: hidden;
+  transform: scale(0.8);
+  white-space: normal;
+  line-height: 1.5;
+}
+
+#letterBox.show {
+  display: block;
+  animation: letterPop 0.5s forwards;
+}
+
+@keyframes letterPop {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.letter-content {
+  padding: 15px;
+  font-family: cursive;
+  color: #d63384;
+  text-align: center;
+}
+
+#letterText {
+  font-size: 16px;
+}
+
+/* floating hearts */
+.heart {
+  position: absolute;
+  color: pink;
+  font-size: 14px;
+  animation: floatUp 3s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-150px); opacity: 0; }
+}
